@@ -1,4 +1,3 @@
-//BUTTONS
 let startBtn = document.querySelector('.btnStart')
 let btnMenu =  document.querySelector('.btnMenu')
 let btnGame = document.querySelector('.btnStartGame')
@@ -64,7 +63,7 @@ btnMenu.addEventListener('click', (e) => {
 })
 
 
-let showResPic = '';
+let showResPic = ''
 
 for (let i = 0; i < chooseBtn.length; i++) {
     let result = chooseBtn[i]
@@ -75,17 +74,17 @@ for (let i = 0; i < chooseBtn.length; i++) {
         switch (result.id){
             case('pic_1'):
                 showResPic = pic1
-                renderImg()
+                // renderImg()
                 break;
 
             case ('pic_2'):
                 showResPic = pic2
-                renderImg()
+                // renderImg()
                 break;
 
             case('pic_3'):
                 showResPic = pic3
-                renderImg()
+                // renderImg()
                 break;
         }
 
@@ -94,12 +93,18 @@ for (let i = 0; i < chooseBtn.length; i++) {
 }
 
 
-
-function renderImg () {
-    let img = document.querySelector('.pic_for_puzzle')
-    img.src = showResPic
+function renderShowImg(){
+    return showResPic;
 }
 
+// function renderImg () {
+//     let img = document.querySelector('.pic_for_puzzle')
+//     img.src = showResPic
+// }
 
 
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+export  {btnMenu,pic1,pic2,pic3,showResPic, renderShowImg};

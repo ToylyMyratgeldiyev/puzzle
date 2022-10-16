@@ -10,74 +10,90 @@
     <title>Puzzle</title>
 </head>
 <body>
-    <div class="main_page">
-        <div class="wrapper">
-            <h1>8 Puzzle Game</h1>
-            <div class="display">
-                <div id="slider">
-                    <div class="slide_1">
-                        <h4>Web Technologies</h4>
-                        <h4>Project</h4>
-                        <h4>Fall 2022</h4>
+   <div class="main_page">
+       <div class="wrapper">
+           <h1>8 Puzzle Game</h1>
+           <div class="display">
+               <div id="slider">
+                   <div class="slide_1">
+                       <h4>Web Technologies</h4>
+                       <h4>Project</h4>
+                       <h4>Fall 2022</h4>
+                   </div>
+                   <div class="slide_2">
+                       <h4>by</h4>
+                       <h4>Toyly Myratgeldiyev</h4>
+                       <h4>@myratgeldiogly</h4>
+                   </div>
+                   <div class="slide_3">
+                       <h2>Enjoy!</h2>
                     </div>
-                    <div class="slide_2">
-                        <h4>by</h4>
-                        <h4>Toyly Myratgeldiyev</h4>
-                        <h4>@myratgeldiogly</h4>
-                    </div>
-                    <div class="slide_3">
-                        <h2>Enjoy!</h2>
-                    </div>
-                </div>
-            </div>
+              </div>
+           </div>
 
-                <button class="btnStart" id="startGame">
-                    START
-                </button>
-        </div>
-    </div>
+               <button class="btnStart" id="startGame">
+                   START
+               </button>
+       </div>
+   </div>
 
-    <div class="menu_page">
-        <div class="wrapper">
-            <h3>Pick an Image</h3>
-            <div class="pic_change">
-                <ul>
-                    <li><a href="#" class="chooseBnt" id="pic_1"><img src="./img/1.jpg" alt=""></a></li>
-                    <li><a href="#" class="chooseBnt" id="pic_2"><img src="./img/2.jpg" alt=""></a></li>
-                    <li><a href="#" class="chooseBnt" id="pic_3"><img src="./img/3.jpg" alt=""></a></li>
-                </ul>
+   <div class="menu_page">
+       <div class="wrapper">
+           <h3>Pick an Image</h3>
+           <div class="pic_change">
+               <ul>
+                   <li><a href="#" data-img="1" class="chooseBnt" id="pic_1"><img src="./img/1.jpg" alt=""></a></li>
+                   <li><a href="#" data-img="2" class="chooseBnt" id="pic_2"><img src="./img/2.jpg" alt=""></a></li>
+                   <li><a href="#" data-img="3" class="chooseBnt" id="pic_3"><img src="./img/3.jpg" alt=""></a></li>
+               </ul>
 
-            </div>
-                <button class="btnMenu">
-                    START
-                </button>
+           </div>
+               <button class="btnMenu" id="btnMenu">
+                   START
+               </button>
 
-        </div>
-    </div>
+       </div>
+   </div> 
 
     <div class="game_page">
         <div class="wrapper">
 
             <div class="display_game">
-                <img src="" alt="pic" class="pic_for_puzzle">
+               <img src="" alt="pic" class="pic_for_puzzle">
+                <div class="puzzle" id="puzzle">
+                    <button class="item" data-matrix-id="1"></button>
+                    <button class="item" data-matrix-id="2"></button>
+                    <button class="item" data-matrix-id="3"></button>
+                    <button class="item" data-matrix-id="4"></button>
+                    <button class="item" data-matrix-id="5"></button>
+                    <button class="item" data-matrix-id="6"></button>
+                    <button class="item" data-matrix-id="7"></button>
+                    <button class="item" data-matrix-id="8"></button>
+                    <button class="item" data-matrix-id="9"></button>
+                </div>
             </div>
 
+        
+
             <label for="pet-select">Select Shuffle Amount</label>
-            <select class="select" id="pet-select">
+             <!-- <select class="select" id="pet-select"> 
                 <option value="choose" disabled="disabled" selected>Choose shuffle</option>
                 <option value="3">3 moves</option>
                 <option value="30">30 moves</option>
-            </select>
+            </select> -->
 
+            <button id="shuffle" class="shuffle">
+                Shuffle
+            </button>
 
-                <button class="btnStartGame">
+                <!-- <button class="btnStartGame">
                     START
-                </button>
+                </button> -->
 
         </div>
     </div>
 
-
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
+    <script src="game.js" type="module"></script>
 </body>
 </html>
