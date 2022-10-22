@@ -262,3 +262,77 @@ label {
     padding:5px 15px;
 }
 
+
+.shuffle{
+  margin-top: 20px;
+}
+
+
+@media only screen and (max-width : 768px){
+  h1{
+    display:none;
+  }
+
+  .display{
+    margin:10px
+  }
+
+  label{
+    display:none;
+  }
+
+  .select{
+    margin-top:20px;
+  }
+}
+
+
+@media only screen and (max-width:485px){
+  .display{
+    auto-width:100%;
+  }
+
+  h3{
+    display:none;
+  }
+
+  .menu_page{
+    auto-width:100%;
+  }
+
+  .pic_change{
+    width:auto;
+  }
+
+  .pic_change ul li img{
+    width:100px;
+    height:100px;
+    border-radius:10px;
+    margin:5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

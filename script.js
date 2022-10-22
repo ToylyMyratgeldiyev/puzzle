@@ -47,7 +47,7 @@ function slider(){
 slider()
 
 
-//EVENTS
+// EVENTS
 startBtn.addEventListener('click',(e)=>{
     startPage.style.display = 'none'
     menuPage.style.display = 'flex'

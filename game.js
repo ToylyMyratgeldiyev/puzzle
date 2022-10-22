@@ -50,39 +50,51 @@ btnMenu.addEventListener('click', (e)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (itemNodes.length !== 8){
-//     throw new Error(`Должно быть ровно ${countItems} items in HTML`)
-// }
-
 //1) Position
 itemNodes[countItems - 1].style.display = 'none';   //удаляем последний элемент из массива//
 let matrix = getMatrix(
     itemNodes.map(item =>Number(item.dataset.matrixId))
-);
+    );
 
-setLocationItems(matrix)
-
-
-// 2) Shuffle
-document.getElementById('shuffle').addEventListener('click', ()=>{
-    const shuffledArray = shuffleArray(matrix.flat())
-    matrix = getMatrix(shuffledArray)
     setLocationItems(matrix)
-})
 
+    
+
+    let timer;
+    let maxShuffleCount = 10
+
+    document.getElementById('shuffle').addEventListener('click', ()=>{
+    let select = document.querySelector('.select')
+    for (let i = 0; i < select.length; i++) {
+        const option = select[i];
+        if(option.selected){
+            if(option.value == 3){
+                maxShuffleCount = 3
+            }else if(option.value == 30){
+                maxShuffleCount = 30
+            }else if(option.value == choose){
+                maxShuffleCount = 0
+            }
+        }
+    }
+
+
+
+    let shuffleCount = 0
+    clearInterval(timer)
+
+    if(shuffleCount === 0){
+        timer = setInterval(() => {
+            randomSwap(matrix)
+            setLocationItems(matrix)
+            shuffleCount += 1;
+            if(shuffleCount >= maxShuffleCount){ 
+                clearInterval(timer)
+            }
+        }, 300);
+    }
+
+})
 
 
 
@@ -113,8 +125,45 @@ containerNode.addEventListener('click',(e)=>{
 
 
 
-
 //Helpers
+
+let blockedCoords = null;
+function randomSwap(matrix){
+    const blankCoords = findCoordinatesByNumber(blankNumber,matrix)
+    const validCoords = findValidCoords({
+        blankCoords,
+        matrix,
+        blockedCoords
+    })
+
+    console.log(validCoords)
+    
+    const swapCoords = validCoords [
+        Math.floor(Math.random() * validCoords.length )
+    ]
+    swap(blankCoords,swapCoords,matrix)
+}
+
+function findValidCoords ({blankCoords,matrix}){
+    const validCoords = [];
+    for (let y = 0; y < matrix.length; y++) {
+        for (let x = 0; x < matrix[y].length; x++) {
+            if(isValidForSwap({x,y},blankCoords)){
+                if(!blockedCoords || !(
+                    blockedCoords.x === x && blockedCoords.y === y
+                )){
+                    validCoords.push({x,y})
+                }
+            }
+        
+        }
+    }
+    return validCoords;
+}
+
+
+
+
 function getMatrix(arr){
     const matrix = [[],[],[]]
     let y = 0;
@@ -209,5 +258,3 @@ function addWonClass(){
         }, 1000);
     },200)
 }
-
-
