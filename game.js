@@ -142,6 +142,7 @@ function randomSwap(matrix){
         Math.floor(Math.random() * validCoords.length )
     ]
     swap(blankCoords,swapCoords,matrix)
+    blockedCoords = blankCoords
 }
 
 function findValidCoords ({blankCoords,matrix}){
@@ -250,7 +251,7 @@ const wonClass = 'puzzleWon'
 function addWonClass(){
     setTimeout(()=>{
         containerNode.classList.add(wonClass)
-        document.querySelector('.display_game').style.backgroundColor = 'green'
+        // document.querySelector('.display_game').style.backgroundColor = 'green'
         setTimeout(() => {
             containerNode.classList.remove(wonClass)
             document.querySelector('.display_game').style.backgroundColor = 'white'
