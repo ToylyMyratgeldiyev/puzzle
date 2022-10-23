@@ -62,7 +62,7 @@ let matrix = getMatrix(
 
     let timer;
     let maxShuffleCount = 10
-
+    let timeCount = 200
     document.getElementById('shuffle').addEventListener('click', ()=>{
     let select = document.querySelector('.select')
     for (let i = 0; i < select.length; i++) {
@@ -70,8 +70,10 @@ let matrix = getMatrix(
         if(option.selected){
             if(option.value == 3){
                 maxShuffleCount = 3
+                timeCount = 500
             }else if(option.value == 30){
                 maxShuffleCount = 30
+                timeCount = 50
             }else if(option.value == choose){
                 maxShuffleCount = 0
             }
@@ -91,7 +93,7 @@ let matrix = getMatrix(
             if(shuffleCount >= maxShuffleCount){ 
                 clearInterval(timer)
             }
-        }, 300);
+        }, timeCount);
     }
 
 })
@@ -251,10 +253,10 @@ const wonClass = 'puzzleWon'
 function addWonClass(){
     setTimeout(()=>{
         containerNode.classList.add(wonClass)
-        // document.querySelector('.display_game').style.backgroundColor = 'green'
+        document.querySelector('.display_game').style.boxShadow = '0 0 25px green' 
         setTimeout(() => {
             containerNode.classList.remove(wonClass)
-            document.querySelector('.display_game').style.backgroundColor = 'white'
+            document.querySelector('.display_game').style.boxShadow = '0 0 5px grey'
 
         }, 1000);
     },200)
