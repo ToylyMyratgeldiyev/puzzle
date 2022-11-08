@@ -51,7 +51,7 @@ slider()
 startBtn.addEventListener('click',(e)=>{
     startPage.style.display = 'none'
     menuPage.style.display = 'flex'
-    isCheckSlideWhile = false;
+    // isCheckSlideWhile = false;
 })
 
 

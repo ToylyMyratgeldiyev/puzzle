@@ -14,7 +14,7 @@ let urlImg;
 btnMenu.addEventListener('click', (e)=>{
     renderShowImg()
     if(showResPic){
-        console.log(showResPic)
+        // console.log(showResPic)
     }
     itemNodes.map((item,index) => {
         switch(index){
@@ -63,17 +63,22 @@ let matrix = getMatrix(
     let timer;
     let maxShuffleCount = 10
     let timeCount = 200
+
+
     document.getElementById('shuffle').addEventListener('click', ()=>{
     let select = document.querySelector('.select')
+    let blockTile = document.querySelector('.block_tile')
     for (let i = 0; i < select.length; i++) {
         const option = select[i];
         if(option.selected){
             if(option.value == 3){
                 maxShuffleCount = 3
                 timeCount = 500
+                blockTile.style.display = 'none';
             }else if(option.value == 30){
                 maxShuffleCount = 30
                 timeCount = 50
+                blockTile.style.display = 'none';
             }else if(option.value == choose){
                 maxShuffleCount = 0
             }
@@ -138,7 +143,7 @@ function randomSwap(matrix){
         blockedCoords
     })
 
-    console.log(validCoords)
+    // console.log(validCoords)
     
     const swapCoords = validCoords [
         Math.floor(Math.random() * validCoords.length )
